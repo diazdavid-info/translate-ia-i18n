@@ -2,7 +2,6 @@
   "name": "translate-ia-i18n",
   "version": "0.0.5",
   "description": "Traductor de ficheros de traducciones i18n por IA",
-  "type": "module",
   "main": "index.js",
   "license": "MIT",
   "author": {
