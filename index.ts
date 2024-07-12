@@ -36,7 +36,7 @@ const main = async () => {
       choices: [
         { title: 'Inglés', value: 'ingles' },
         { title: 'Español', value: 'español' },
-        { title: 'Fances', value: 'frances' },
+        { title: 'Frances', value: 'frances' },
         { title: 'Italiano', value: 'italiano' },
         { title: 'Portugués', value: 'portugues' },
         { title: 'Ruso', value: 'ruso' },
