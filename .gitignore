@@ -1,0 +1,16 @@
+# build output
+dist
+build/**
+.next/**
+.turbo
+
+# dependencies
+node_modules
+
+# Editors
+**/.idea
+
+enviroments
+**/.env
+
+files
