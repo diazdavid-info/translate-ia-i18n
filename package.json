@@ -10,7 +10,7 @@
     "email": "diazdavid.info@gmail.com"
   },
   "bin": {
-    "tasks": "./dist/index.js"
+    "translate-ia-i18n": "./dist/index.js"
   },
   "files": [
     "dist"
