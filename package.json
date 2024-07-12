@@ -1,6 +1,6 @@
 {
   "name": "translate-ia-i18n",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Traductor de ficheros de traducciones i18n por IA",
   "type": "module",
   "main": "index.js",
