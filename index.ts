@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { CoreMessage, generateText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 import * as fs from 'node:fs'
