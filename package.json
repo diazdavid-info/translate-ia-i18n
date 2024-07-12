@@ -1,9 +1,20 @@
 {
   "name": "translate-ia-i18n",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "Traductor de ficheros de traducciones i18n por IA",
   "type": "module",
   "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "David Díaz",
+    "email": "diazdavid.info@gmail.com"
+  },
+  "bin": {
+    "tasks": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rimraf dist && ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
     "clean": "rimraf node_modules && rimraf dist",
@@ -11,8 +22,6 @@
     "lint": "eslint index.ts"
   },
   "keywords": [],
-  "author": "David Diaz",
-  "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.14.10",
     "@types/prompts": "^2.4.9",
