@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 
-import { CoreMessage, generateText } from 'ai'
-import { openai } from '@ai-sdk/openai'
+import { log, blue } from '@/logger'
+import { call as callAI } from '@/ai'
 import * as fs from 'node:fs'
-import { prompt } from './src/prompt'
 import * as console from 'node:console'
 import * as process from 'node:process'
 import prompts, { PromptObject } from 'prompts'
 
-const callAI = async (messages: Array<CoreMessage>) => {
-  const { text } = await generateText({
-    model: openai('gpt-4o'),
-    system: prompt(),
-    messages: messages,
-    temperature: 0.8,
-    maxTokens: 4096
-  })
-
-  return text
-}
-
 const main = async () => {
-  process.stdout.write(
-    `🤖 Hola, soy tu \x1b[34masistente de IA\x1b[0m para ayudarte a traducir fichero de traduciones a cualquier idioma\n`
-  )
+  log(`🤖 Hola, soy tu ${blue('asistente de IA')} para ayudarte a traducir fichero de traduciones a cualquier idioma`)
 
   const questions: PromptObject<string>[] = [
     {
@@ -65,12 +50,12 @@ const main = async () => {
   const { meaning, language, preview } = await prompts(questions)
 
   if (!fs.existsSync(meaning)) {
-    process.stderr.write(`🤖 El fichero ${meaning} no existe\n`)
+    log(`🤖 El fichero ${meaning} no existe`)
     process.exit(1)
   }
 
-  process.stdout.write(
-    `🤖 Traduciendo el fichero \x1b[34m${meaning}\x1b[0m que se traducirá a \x1b[34m${language}\x1b[0m y${preview ? ' ' : ' no '}se generará una \x1b[34mpreview\x1b[0m\n`
+  log(
+    `🤖 Traduciendo el fichero ${blue(meaning)} que se traducirá a ${blue(language)} y${preview ? ' ' : ' no '}se generará una ${blue('preview')}`
   )
 
   const buffer = fs.readFileSync(meaning)
@@ -85,7 +70,7 @@ const main = async () => {
   const translated = JSON.parse(translate)
 
   if (preview) {
-    process.stdout.write(`${JSON.stringify(translated, null, 2)}\n`)
+    log(JSON.stringify(translated, null, 2))
 
     const { isCorrect } = await prompts({
       type: 'confirm',
@@ -98,7 +83,7 @@ const main = async () => {
 
   fs.writeFileSync(fileName, JSON.stringify(translated, null, 2))
 
-  process.stdout.write(`🤖 El fichero se ha almacenado en \x1b[34m${fileName}\x1b[0m\n`)
+  log(`🤖 El fichero se ha almacenado en ${blue(fileName)}`)
 }
 
 main().catch(console.error)
