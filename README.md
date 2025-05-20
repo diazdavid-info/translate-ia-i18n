@@ -2,6 +2,17 @@
 
 Traduce a cualquier idioma de una forma automática los ficheros JSON i18n de un proyecto.
 
+## Requisitos
+
+Necesitas tener una environment en tu computadora con una api key de OpenAI. La environment se
+tiene que llamar `OPENAI_API_KEY` que es la oficial de OpenAI.
+
+Para añadir la enviroment puedes añadirla en el fichero .bashrc o ejecutar el siguiente comando
+y solo la tendrás para la sesión actual:
+```bash
+export OPENAI_API_KEY=YOUR_API_KEY
+```
+
 ## Uso
 
 Ejecutar:

@@ -31,6 +31,7 @@ const initQuestions = async () => {
       choices: [
         { title: 'Inglés', value: 'ingles' },
         { title: 'Español', value: 'español' },
+        { title: 'Alemán', value: 'aleman' },
         { title: 'Frances', value: 'frances' },
         { title: 'Italiano', value: 'italiano' },
         { title: 'Portugués', value: 'portugues' },
